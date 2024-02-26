@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="parent :: parent">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <div class="media-container">
+        <div th:each="m : ${media}" class="media-card" style="border: 1px solid #ffd700; text-align: center; padding: 10px; margin: 10px; border-radius: 25px;">
+            <img th:src="${m.poster}" alt="poster" style="padding-top: 20px; max-width: 100%; height: auto;"/>
+            <h3>
+                <a th:href="@{/media/{id}(id=${m._id})}" style="color: #ffd700; text-decoration: none;" th:text="${m.title}"></a>
+            </h3>
+        </div>
+    </div>
+
+</body>
+</html>
