@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Review{
-    private String user_id;
-    private String movie_id;
+    private Long review_id;
+    private Long user_id;
+    private Long movie_id;
     private String review;
     private Integer rating;
 }

@@ -6,7 +6,7 @@ import org.humber.project.domain.Review;
 
 public interface ReviewService
 {
-        List<Review> getAllReviews(String movie_id);
+        List<Review> getReviewByMovie(Long movie_id);
         void updateReview(Review review);
         void addReview(Review review);
         void deleteReview(Review review);
