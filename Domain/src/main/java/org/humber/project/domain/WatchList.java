@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WatchList {
     private Long watchlistId;
-    private Long userId;
-    private Long movieId;
+    private Long user_id;
+    private Long movie_id;
 }

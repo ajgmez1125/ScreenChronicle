@@ -23,6 +23,7 @@ public class WatchListController {
 
     @PostMapping("/add")
     public ResponseEntity<WatchList> addToWatchList(@RequestBody WatchList watchList) {
+
         WatchList addedToWatchList = watchListJPAService.addToWatchList(watchList);
         return ResponseEntity.status(HttpStatus.CREATED).body(addedToWatchList);
     }

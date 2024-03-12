@@ -10,7 +10,7 @@ spring:
 #Spring Datasource Connection Pooling configuration
   datasource:
     username: root
-    password: root
+    password: N36a912S
     url: jdbc:mysql://localhost:3306/screenchronicle?useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
     tomcat:

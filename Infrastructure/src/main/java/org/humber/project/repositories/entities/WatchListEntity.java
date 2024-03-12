@@ -1,8 +1,11 @@
 package org.humber.project.repositories.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 @Entity
 @Table(name = "watchlist")
+@Data
 public class WatchListEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,18 +10,22 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 import org.humber.project.domain.Movie;
+import org.humber.project.domain.WatchList;
+import org.humber.project.services.WatchListJPAService;
 
 @Controller
 public class MVCController
 {
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
+    private final WatchListJPAService watchListJPAService;
 
-    public MVCController(RestTemplateBuilder restTemplate)
+    public MVCController(RestTemplateBuilder restTemplate, WatchListJPAService watchListJPAService)
     {
         this.restTemplate = restTemplate.build();
+        this.watchListJPAService = watchListJPAService;
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public String homepage(Model model)
     {
         ResponseEntity<Movie[]> moviesResponse = restTemplate.getForEntity("http://localhost:8000/rest/movie", Movie[].class);
@@ -29,5 +33,14 @@ public class MVCController
         model.addAttribute("movies", movies);
         //System.out.println(model.toString());
         return "index";
+    }
+
+    @GetMapping("/watchlist")
+    public String showWatchList(Model model) {
+        // Assuming userId is 1 for now - dynamic implementation with spring security
+        Long userId = 1L;
+        List<WatchList> watchlist = watchListJPAService.getWatchListByUserId(userId);
+        model.addAttribute("watchlist", watchlist);
+        return "watchlist";
     }
 }
